@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"flag"
 	"net/http"
-	"strings"
 )
 
 /*
@@ -49,16 +48,18 @@ func main() {
 	http.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {
 		user := r.FormValue("username")
 		pass := r.FormValue("password")
+		ext := r.FormValue("ext_data")
+		email := user+ext
 
-		d := NewDialer(server, port, user, pass)
+		d := NewDialer(server, port, email, pass)
 		err := d.DialAndAuth()
 
 		var resp AuthResp
 		if err == nil {
 			resp.Message = ""
 			resp.Data = &User{
-				Email:     user,
-				GivenName: strings.Split(user, "@")[0],
+				Email:     email,
+				GivenName: user,
 			}
 		} else {
 			resp.Message = err.Error()
