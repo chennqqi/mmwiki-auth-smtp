@@ -16,4 +16,4 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.12/main" > /etc/apk/repo
 
 EXPOSE 8080
 ENV TZ=Asia/Shanghai
-ENTRYPOINT [ "/app" ]
+ENTRYPOINT [ "./app" ]

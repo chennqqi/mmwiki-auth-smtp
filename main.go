@@ -36,13 +36,13 @@ func main() {
 		server   string
 		listen   string
 		path     string
-		userDict string
+	//	userDict string
 		port     int
 	)
 	flag.StringVar(&path, "path", "/smtplogin", "set path")
 	flag.StringVar(&server, "server", "", "set server")
 	flag.StringVar(&listen, "listen", ":8080", "set http listen")
-	flag.StringVar(&userDict, "user", "user.yaml", "set users config file")
+	// flag.StringVar(&userDict, "user", "user.yaml", "set users config file")
 	flag.IntVar(&port, "port", 25, "set smtp port, 465 for ssl smtp")
 	flag.Parse()
 
