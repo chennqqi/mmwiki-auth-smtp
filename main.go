@@ -63,6 +63,7 @@ func main() {
 		} else {
 			resp.Message = err.Error()
 		}
+		w.Header().Set("Content-Type", "application/json")
 
 		txt, _ := json.Marshal(resp)
 		w.Write(txt)
